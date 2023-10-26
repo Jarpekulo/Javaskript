@@ -1,0 +1,50 @@
+<html>
+
+<body>
+
+<textarea rows="60" cols="60">
+
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<script type="text/javascript">
+function pole_sykutera()
+{
+	var a_syk= parseFloat(document.getElementById('a').value);
+	var b_syk= parseFloat(document.getElementById('b').value);
+	var pole_syk = a_syk*b_syk;
+	document.getElementById("nazwa").innerHTML ="Pole kwadratu= "+pole_syk.toFixed(2)+" cm^2";
+}
+
+
+function obwod_sykutera()
+{
+	var a_syk = parseFloat(document.getElementById('a').value);
+	var b_syk= parseFloat(document.getElementById('b').value);
+	var obwod_syk = (2*a_syk)+(2*b_syk);
+	document.getElementById("nazwa").innerHTML ="Obwód kwadratu= "+obwod_syk.toFixed(2)+" cm";
+}
+
+
+</script>
+Podaj  a: <input type="text" id="a" value=""> cm<br><br><br>
+Podaj  b: <input type="text" id="b" value="	"> cm<br><br><br>
+<input type="button" name="pole" value="pole" Onclick="pole_sykutera()"><br><br>
+
+<input type="button" name="obwod" value="obwod" Onclick="obwod_sykutera()"><br><br>
+<div style="color:red;font-size:50px;"id="nazwa"></div>
+</body>
+</html>
+
+
+
+</textarea>
+
+</body>
+
+</html>

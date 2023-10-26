@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styl.css">
+<script type="text/javascript">
+function drabina_sykutera(d_syk,x_syk)
+{
+	d_syk= parseFloat(d)
+	x_syk= parseFloat(x)
+	L_wynik=d_syk*d_syk+x_syk*x_syk;
+	wynik= math.sqrt(L_wynik);
+	document.getElementByName("Dlugosc") [0].value=wynik.toFixed(2);
+}
+
+
+function kat_sykutera(d_syk,x_syk)
+{
+	d_syk= parseFloat(d)
+	x_syk= parseFloat(x)
+	tg_alfa=d_syk/x_syk;
+	radianty=math.atan(tg_alfa);
+	stopnie = (radianty * 180)/Math.PI;
+	document.getElementByName("Alfa") [0].value=stopnie.toFixed(2);
+}
+
+
+</script>
+</head>
+<body>
+
+<form name="formularz" action="..." onsubmit="drabina_sykutera(this.wysokosc.value,this.odleglosc.value; kat_sykutera(this.wysokosc.value,this.odleglosc.value);return false">
+
+Podaj  d: <input name="wysokosc" size="6"> cm&nbsp&nbsp&nbsp&nbsp
+Podaj  x: <input name="odleglosc" size="6"> cm<br><br>
+<br> <br>
+<input type="submit" Value="oblicz"><br><br>
+Drabina :
+<input size="6" name="Dlugosc">
+Alfa :
+<input size="6" name="Alfa">
+</form>
+
+
+</body>
+</html>
