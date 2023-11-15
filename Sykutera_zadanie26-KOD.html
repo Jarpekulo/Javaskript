@@ -1,48 +1,31 @@
 <html>
 <textarea rows="60" cols="60">
+<html>
 <head>
-		<meta charset="utf-8">
- </head>
-	<body>
-		<div style="font-size: 54px;color:blue;">
-<script language="JavaScript">
-		
-	function okno_zamknij()
-  {
- 	window.close()
-  }
-		 
-		 
-		var n2_syk=prompt("No = ","");
-		
-		var t_syk=prompt("t = ","");
-		
-		var t1_syk=prompt("T1/2 = ","");
-		
-		var n2_syk=parseFloat(n2_syk);
-		var t_syk=parseFloat(t_syk);
-        var t1_syk=parseFloat(t1_syk);
-		
-		var  lambda_syk=(-((Math.log(2))/t_syk)*t1_syk); 
-        
-		var 	n2_syk = Math.E;
-				n2_syk = (Math.pow(n2_syk,lambda_syk))*n2_syk;
-				
- 
- 		document.write("N0 = " + n2_syk+" [sztuk]<br>");
-		
- 		document.write("t = " + t_syk +" [lat]<br>");
-		
- 		document.write("T1/2 = " + t1_syk +" [lat]<br>");
-		
-		document.write("Lambda = " + -lambda_syk.toFixed(7) +" [1/rok]<br>");
-		
-		document.write("N = " +n2_syk.toFixed(7)+" [sztuk]<br>");
-		
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styl.css">
+<script type="text/javascript">
+var x1_syk=parseFloat(prompt("x1=",""));
+var x2_syk=parseFloat(prompt("x2=",""));
+
+
+radiant = (x1_syk*Math.PI)/180;
+y1_syk= 3*Math.pow(x1_syk,5/7);
+y2_syk= 2*Math.cos(radiant)+3*Math.sin(radiant)
+y3_syk= Math.pow(Math.pow(x1_syk,5)+2*Math.pow(x2_syk,4),1/3)*Math.abs(x1_syk-x2_syk);
+
+document.write("x1="+x1_syk+"&nbsp&nbsp&nbsp&nbsp&nbspx2="+x2_syk+"<br>");
+document.write("x1="+x1_syk+"&nbsp&nbsp&nbsp&nbsp&nbspx1="+radiant.toFixed(2)+"<br>");
+document.write("y1="+y1_syk.toFixed(2)+"<br>");
+document.write("y2="+y2_syk.toFixed(2)+"<br>");
+document.write("y3="+y3_syk.toFixed(2));
 </script>
-		</div>
-		<input type="button" value="zamknij okno" onclick="okno_zamknij()"/>
-	</body>
+</head>
+<body>
+
+
+
+</body>
 </html>
-</textarea>
+<textarea>
 </html>
