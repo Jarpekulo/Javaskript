@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Sprawdzenie danych Twoje nazwisko </title>
+<meta charset="utf-8">
+</head>
+<body>
+<div style="color:red;font-size:50px;">
+<script language="JavaScript">
+do
+{
+do {
+var liczba1=prompt("1 bok=","");
+var a_syk=parseFloat(liczba1);
+}while ( a_syk<=0);
+
+
+do {
+var liczba1=prompt("2 bok=","");
+var b_syk=parseFloat(liczba1);
+}while(!( b_syk>0));
+
+do {
+var liczba1=prompt("3 bok=","");
+var c_syk=parseFloat(liczba1);
+}while(!( c_syk>0));
+}while(a_syk + b_syk <= c_syk || a_syk + c_syk <= b_syk || b_syk + c_syk <= a_syk) 
+
+document.write("Boki "+a_syk+","+b_syk+","+c_syk+" tworza trojkat");
+</script>
+</div>
+</body>
+</html>
