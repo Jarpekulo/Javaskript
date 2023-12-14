@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        function kwadratowa(a_syk, b_syk, c_syk) {
+            if (a_syk === 0) {
+                alert("Funkcja nie jest kwadratowa");
+                return;
+            }
+
+            var p_syk = (-1 * b_syk) / (2 * a_syk);
+            var q_syk = (a_syk * p_syk * p_syk) + (b_syk * p_syk) + c_syk;
+
+            document.getElementsByName('Wierzcholek')[0].value = "(" + p_syk.toFixed(2) + ", " + q_syk.toFixed(2) + ")";
+        }
+
+        function x1x2(a_syk, b_syk, c_syk) {
+            if (a_syk === 0) {
+                alert("Funkcja nie jest kwadratowa");
+                return;
+            }
+		
+            var delta_syk = b_syk * b_syk - 4 * a_syk * c_syk;
+
+
+
+            if (delta_syk < 0) {
+                document.getElementsByName('drugie')[0].value = "Brak pierwiastków rzeczywistych";
+            } 
+			else 
+			{
+                var x1 = (-b_syk - Math.sqrt(delta_syk)) / (2 * a_syk);
+                var x2 = (-b_syk + Math.sqrt(delta_syk)) / (2 * a_syk);
+
+                document.getElementsByName('drugie')[0].value = "x1 = " + x1.toFixed(2) + ", x2 = " + x2.toFixed(2);
+            }
+        }
+
+        function okno_zamknij() {
+            window.close();
+        }
+    </script>
+</head>
+<body>
+    <h1>Obliczanie Funkcji kwadratowej</h1><br><br>
+    <form name="formularz" onsubmit="kwadratowa(parseFloat(this.zmienna1.value), parseFloat(this.zmienna2.value), parseFloat(this.zmienna3.value)); x1x2(parseFloat(this.zmienna1.value), parseFloat(this.zmienna2.value), parseFloat(this.zmienna3.value)); return false;">
+        Podaj a = <input type="text" id="zmienna1" size="6"> 
+        Podaj b = <input type="text" id="zmienna2" size="6">
+        Podaj c = <input type="text" id="zmienna3" size="6"> <br><br><br>
+ 
+        <input type="submit" value="oblicz"><br><br><br>
+	  
+        Wierzcholek = <input size="20" name="Wierzcholek">
+   
+        x1x2 = <input size="40" name="drugie"><br><br><br>
+
+        <input type="button" value="zamknij okno" onclick="okno_zamknij()">
+    </form>
+</body>
+</html>
