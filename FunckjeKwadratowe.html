@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funkcja Kwadratowa</title>
+    <script type="text/javascript">
+        function Kwadratowa(a, b, c) {
+            if (a === 0) 
+			{
+                alert("To nie jest funkcja kwadratowa");
+                return;
+            }
+
+            var p = (-1*b) / (2*a);
+            var q = (a*p*p) + (b*p) + c;
+			
+            document.getElementsByName('wierzcholek')[0].value = "("+p.toFixed(2) + ", "+q.toFixed(2) + ")";
+			
+			
+			
+			
+			
+			
+            var delta = b*b-4*a*c;
+            if (delta < 0) 
+			{
+                document.getElementsByName('miejscaZerowe')[0].value = "Brak miejsc zerowych";
+            } else {
+                var x1 = (-b - Math.sqrt(delta)) / (2*a);
+                var x2 = (-b + Math.sqrt(delta)) / (2*a);
+                document.getElementsByName('miejscaZerowe')[0].value = "x1 = " + x1.toFixed(2) + ", x2 = " + x2.toFixed(2);
+
+                if (delta !== 0) {
+                    var a1 = a;
+                    var b1 = -1 * (a * (-1*b / (2*a)) + c);
+                    var c1 = a * c;
+                    document.getElementsByName('iloczynowa')[0].value = "y = " + a1.toFixed(2) + "(x - " + (-1 * b1 / (2 * a1)).toFixed(2) + ")^2 + " + c1.toFixed(2);
+                } 
+				else 
+				{
+                    document.getElementsByName('iloczynowa')[0].value = "Funkcja iloczynowa nie istnieje";
+                }
+            }
+			
+			
+			
+			
+		
+			
+            if (a > 0) 
+			{
+                document.getElementsByName('ros')[0].value = "(-∞, " + p.toFixed(2) + ")";
+                document.getElementsByName('mal')[0].value = "(" + p.toFixed(2) + ", +∞)";
+            } else 
+			{
+                document.getElementsByName('ros')[0].value = "(" + p.toFixed(2) + ", +∞)";
+                document.getElementsByName('mal')[0].value = "(-∞, " + p.toFixed(2) + ")";
+            }
+        }
+
+
+
+
+        function zamknijOkno() 
+		{
+            window.close();
+        }
+    </script>
+</head>
+<body>
+
+
+    <h1 style="font-size:2cm; color:green;">Funkcja Kwadratowa</h1><br><br>
+    <form name="kalkulator">
+        Podaj a = <input type="text" id="a" size="6"> 
+        Podaj b = <input type="text" id="b" size="6">
+        Podaj c = <input type="text" id="c" size="6"> <br><br><br>
+
+        <input type="button" value="Oblicz" onclick="Kwadratowa(parseFloat(document.getElementById('a').value), parseFloat(document.getElementById('b').value), parseFloat(document.getElementById('c').value));">
+        <br><br><br>
+		
+        Wierzchołek = <input size="20" name="wierzcholek">
+        Miejsca zerowe = <input size="40" name="miejscaZerowe"><br><br><br>
+        Funkcja Iloczynowa = <input size="50" name="iloczynowa"><br><br><br>
+        Rosnąca na przedziale = <input size="30" name="ros">
+        Malejąca na przedziale = <input size="30" name="mal"><br><br><br>
+        <input type="button" value="Zamknij Okno" onclick="zamknijOkno()">
+		
+		
+		
+    </form>
+</body>
+</html>
