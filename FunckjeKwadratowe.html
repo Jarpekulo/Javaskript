@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Funkcja Kwadratowa</title>
+	<style>
+	input,form{
+	color:green; font-size:1cm;
+	}
+	</style>
     <script type="text/javascript">
         function Kwadratowa(a, b, c) {
             if (a === 0) 
@@ -25,25 +30,41 @@
             if (delta < 0) 
 			{
                 document.getElementsByName('miejscaZerowe')[0].value = "Brak miejsc zerowych";
-            } else {
-                var x1 = (-b - Math.sqrt(delta)) / (2*a);
-                var x2 = (-b + Math.sqrt(delta)) / (2*a);
-                document.getElementsByName('miejscaZerowe')[0].value = "x1 = " + x1.toFixed(2) + ", x2 = " + x2.toFixed(2);
-
-                if (delta !== 0) {
-                    var a1 = a;
-                    var b1 = -1 * (a * (-1*b / (2*a)) + c);
-                    var c1 = a * c;
-                    document.getElementsByName('iloczynowa')[0].value = "y = " + a1.toFixed(2) + "(x - " + (-1 * b1 / (2 * a1)).toFixed(2) + ")^2 + " + c1.toFixed(2);
-                } 
-				else 
+            }else if(delta==0) 
+			{
+				document.getElementsByName('miejscaZerowe')[0].value = "x0="+(-1*b)/(2*a);
+			} 
+			 if(delta < 0)
 				{
                     document.getElementsByName('iloczynowa')[0].value = "Funkcja iloczynowa nie istnieje";
                 }
+				else if(delta == 0) {
+					document.getElementsByName('iloczynowa')[0].value = "y="+a1+"(x-"+ (-b)/(2*a)+"^2";
+				}
+			else if(delta>0){
+                var x1 = (-b - Math.sqrt(delta)) / (2*a);
+                var x2 = (-b + Math.sqrt(delta)) / (2*a);
+                document.getElementsByName('miejscaZerowe')[0].value = "x1 = " + x1.toFixed(2) + ", x2 = " + x2.toFixed(2)+")";
+
+                if (delta > 0) {
+                    var a1 = a;
+                var x1 = (-b - Math.sqrt(delta)) / (2*a);
+                var x2 = (-b + Math.sqrt(delta)) / (2*a);
+					
+                    document.getElementsByName('iloczynowa')[0].value = "y = " + a1.toFixed(2) + "(x - " + x1.toFixed(2) + ")(x+" + -x2.toFixed(2)+")";
+                } //y = a(x – x1 )(x – x2 )
+				else if(delta == 0)
+				{
+					document.getElementsByName('iloczynowa')[0].value = "y = " + a1.toFixed(2) + "(x - " + x1.toFixed(2) + ")(x+" + -x2.toFixed(2)+")";
+				}
+				
             }
 			
+			var p = (-1*b)/(2*a);
+			var q = (-1*delta)/(a*4);
 			
-			
+			document.getElementsByName('kan')[0].value = "y="+a+"( x + "+ -p.toFixed(2)+" )^2 + "+q.toFixed(2);
+			//y= a(x-p)2+q
 			
 		
 			
@@ -79,11 +100,12 @@
         <input type="button" value="Oblicz" onclick="Kwadratowa(parseFloat(document.getElementById('a').value), parseFloat(document.getElementById('b').value), parseFloat(document.getElementById('c').value));">
         <br><br><br>
 		
-        Wierzchołek = <input size="20" name="wierzcholek">
-        Miejsca zerowe = <input size="40" name="miejscaZerowe"><br><br><br>
-        Funkcja Iloczynowa = <input size="50" name="iloczynowa"><br><br><br>
-        Rosnąca na przedziale = <input size="30" name="ros">
-        Malejąca na przedziale = <input size="30" name="mal"><br><br><br>
+        Wierzchołek = <input size="10" name="wierzcholek">
+        Miejsca zerowe = <input size="10" name="miejscaZerowe"><br><br><br>
+        Funkcja Iloczynowa = <input size="20" name="iloczynowa"><br><br><br>
+		Funckja kanoniczna = <input size="20" name="kan"><br><br><br>
+        Rosnąca na przedziale = <input size="10" name="ros"><br>
+        Malejąca na przedziale = <input size="10" name="mal"><br><br><br>
         <input type="button" value="Zamknij Okno" onclick="zamknijOkno()">
 		
 		
