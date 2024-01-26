@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="UTF-8">
+ <title>Tabele zadanie1</title>
+</head>
+<body>
+ <script>
+ var suma_syk=0;
+ var T_syk= new Array()
+ ilosc = prompt("Ile razy");
+ for (i = 0; i < ilosc; i++) {
+ T_syk[i] = i;
+ suma_syk=suma_syk+i;
+ document.write("T["+i+"]="+T_syk[i]+"<br>");
+ }
+ var srednia_syk=suma_syk/i;
+ document.write("suma="+suma_syk+"<br>");
+ document.write("średnia="+srednia_syk.toFixed(2)+"<br>");
+ </script>
+</body>
+</html>
