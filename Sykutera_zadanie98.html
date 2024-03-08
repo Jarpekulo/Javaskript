@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+dzis_syk = new Date();
+ document.write("<br>Aktualny czas : ",dzis_syk.getHours(),":",dzis_syk.getMinutes(),"<br>");
+
+function Sykutera_start(){
+ start_syk = new Date();
+ poczatek_syk=start_syk.getTime()
+ }
+function Sykutera_stop(){
+ stop_syk = new Date();
+ koniec_syk=stop_syk.getTime()
+ 
+ roznica_syk=koniec_syk-poczatek_syk;
+ pokaz1.innerHTML=roznica_syk/1000+" s";
+} 
+
+
+
+
+
+
+    </script>
+    <input type="button" name="Button1" value="START stoper" onclick="Sykutera_start()">
+    <input type="button" name="Button2" value="STOP stoper" onclick="Sykutera_stop()">
+    <table style="border:3px solid black ;">
+        <tr id="pokaz1"></tr>
+    </table>       
+</body>
+</html>
